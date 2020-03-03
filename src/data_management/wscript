@@ -6,7 +6,36 @@ def build(ctx):
     # Illustrate simple use of run_py_script
     ctx(
         features="run_py_script",
-        source="get_simulation_draws.py",
-        target=ctx.path_to(ctx, "OUT_DATA", "initial_locations.csv"),
-        name="get_simulation_draws",
+        source="merged_data.py",
+        deps=[
+            ctx.path_to(ctx, "IN_DATA", "sharew1_rel7-0-0_ep.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew1_rel7-0-0_gv_isced.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew1_rel7-0-0_co.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew1_rel7-0-0_cv_r.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew2_rel7-0-0_ep.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew2_rel7-0-0_co.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew2_rel7-0-0_cv_r.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew4_rel7-0-0_ep.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew4_rel7-0-0_co.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew4_rel7-0-0_cv_r.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew5_rel7-0-0_ep.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew5_rel7-0-0_co.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew5_rel7-0-0_cv_r.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew6_rel7-0-0_ep.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew6_rel7-0-0_co.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew6_rel7-0-0_cv_r.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew7_rel7-0-0_ep.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew7_rel7-0-0_co.dta"),
+            ctx.path_to(ctx, "IN_DATA", "sharew7_rel7-0-0_cv_r.dta"),
+        ],
+        target=ctx.path_to(ctx, "OUT_DATA", "share_merged.csv"),
+        name="merged_data",
+    )
+
+    ctx(
+        features="run_py_script",
+        source="clean_data.py",
+        deps=[ctx.path_to(ctx, "OUT_DATA", "share_merged.csv")],
+        target=ctx.path_to(ctx, "OUT_DATA", "share_final.csv"),
+        name="share_final",
     )
