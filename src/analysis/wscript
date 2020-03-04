@@ -1,19 +1,33 @@
 #! python
-# def build(ctx):
-# for model in "baseline", "max_moves_2":
-# Illustrate use of run_py_script with automatic model specification.
-# ctx(
-# features="run_py_script",
-# source="schelling.py",
-# deps=[
-# ctx.path_to(ctx, "OUT_DATA", "initial_locations.csv"),
-# ctx.path_to(ctx, "IN_MODEL_CODE", "agent.py"),
-# ctx.path_to(ctx, "IN_MODEL_SPECS", f"{model}.json"),
-# ],
-# target=[
-# ctx.path_to(ctx, "OUT_ANALYSIS", f"schelling_{model}.pickle"),
-# ctx.path_to(ctx, "OUT_ANALYSIS", "log", f"schelling_{model}.log"),
-# ],
-# append=model,
-# name=f"schelling_{model}",
-# )
+# Generate output names list
+
+out_names = []
+for i in [1923, 1940, 1956]:
+    for y in [1939, 1955, 1978]:
+        names = ["", ""]
+        names[0] = "sub_regression_" + "exret_" + str(i) + "_" + str(y) + ".tex"
+        names[1] = "sub_regression_" + "job_Retired_" + str(i) + "_" + str(y) + ".tex"
+
+
+def build(ctx):
+
+    # Illustrate simple use of run_py_script
+    for list in out_names:
+        for name in list:
+            ctx(
+                features="run_py_script",
+                source="regression.py",
+                deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.csv")],
+                target=ctx.path_to(ctx, "OUT_TABLES", name),
+                name="regression",
+            )
+    ctx(
+        features="run_py_script",
+        source="regression.py",
+        deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.csv")],
+        target=[
+            ctx.path_to(ctx, "OUT_TABLES", "main_regression_exret.tex"),
+            ctx.path_to(ctx, "OUT_TABLES", "main_regression_job_Retired.tex"),
+        ],
+        name="regression",
+    )
