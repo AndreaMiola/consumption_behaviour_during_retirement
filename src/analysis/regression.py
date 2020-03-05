@@ -2,6 +2,7 @@ import pandas as pd
 import statsmodels.api as sm
 from linearmodels import PanelOLS
 
+from bld.project_paths import project_paths_join as ppj
 
 # Setting parameters
 
@@ -31,7 +32,7 @@ indeps = [indep_1, indep_2]
 
 # Importing input
 
-raw = pd.read_csv("../original_data/share_final.csv")
+raw = pd.read_csv(ppj("OUT_DATA", "share_final.pkl"))
 
 # Define function generating categorical variable
 
@@ -80,7 +81,7 @@ def panel_reg(dataframe, indep, low=0, up=0):
         name = "main_regression_" + indep[0]
         # Exporting summary table in latex
         summary_table = fe_res.summary
-        f = open((name + ".tex"), "w")
+        f = open(("OUT_TABLES", name + ".tex"), "w")
         f.write(summary_table.as_latex())
         f.close()
     else:
@@ -93,12 +94,12 @@ def panel_reg(dataframe, indep, low=0, up=0):
         name = "sub_regression_" + indep[0] + "_" + str(low) + "_" + str(up)
         # Exporting summary table in latex
         summary_table = fe_res.summary
-        f = open((name + ".tex"), "w")
+        f = open(ppj("OUT_TABLES", name + ".tex"), "w")
         f.write(summary_table.as_latex())
         f.close()
         # Exporting subregression output for plotting
-        fe_res.std_errors.to_pickle(name + "_std" + ".pkl")
-        fe_res.params.to_pickle(name + "_par" + ".pkl")
+        fe_res.std_errors.to_pickle(ppj("OUT_DATA", name + "_std" + ".pkl"))
+        fe_res.params.to_pickle(ppj("OUT_DATA", name + "_par" + ".pkl"))
 
 
 # Main regression

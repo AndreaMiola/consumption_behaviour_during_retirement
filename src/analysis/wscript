@@ -2,26 +2,40 @@
 # Generate output names list
 
 out_names = []
-for i in [1923, 1940, 1956]:
-    for y in [1939, 1955, 1978]:
-        names = ["", ""]
-        names[0] = "sub_regression_" + "exret_" + str(i) + "_" + str(y) + ".tex"
-        names[1] = "sub_regression_" + "job_Retired_" + str(i) + "_" + str(y) + ".tex"
-        out_names.append(names)
+for format in [".tex", ".pkl"]:
+    for i in [1923, 1940, 1956]:
+        for y in [1939, 1955, 1978]:
+            names = ["", ""]
+            names[0] = "sub_regression_" + "exret_" + str(i) + "_" + str(y) + format
+            names[1] = (
+                "sub_regression_" + "job_Retired_" + str(i) + "_" + str(y) + format
+            )
+            out_names.append(names)
 
 
 def build(ctx):
 
     # Illustrate simple use of run_py_script
-    for list in out_names:
+    for list in out_names[: int(len(out_names) / 2)]:
         for name in list:
             ctx(
                 features="run_py_script",
                 source="regression.py",
-                deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.csv")],
+                deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.pkl")],
                 target=ctx.path_to(ctx, "OUT_TABLES", name),
                 name="regression",
             )
+
+    for list in out_names[int(len(out_names) / 2) :]:
+        for name in list:
+            ctx(
+                features="run_py_script",
+                source="regression.py",
+                deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.pkl")],
+                target=ctx.path_to(ctx, "OUT_DATA", name),
+                name="regression",
+            )
+
     ctx(
         features="run_py_script",
         source="regression.py",
@@ -32,3 +46,16 @@ def build(ctx):
         ],
         name="regression",
     )
+
+    for list in out_names[int(len(out_names) / 2) :]:
+        for name in list:
+            ctx(
+                features="run_py_script",
+                source="visualizing_data.py",
+                deps=[ctx.path_to(ctx, "OUT_DATA", name)],
+                target=[
+                    ctx.path_to(ctx, "OUT_FIGURES", "CI_exret.png"),
+                    ctx.path_to(ctx, "OUT_FIGURES", "CI_job_Retired.png"),
+                ],
+                name="vasulization",
+            )

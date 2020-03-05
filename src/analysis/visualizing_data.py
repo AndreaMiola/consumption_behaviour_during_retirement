@@ -2,6 +2,8 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from regression import years_classes
 
+from bld.project_paths import project_paths_join as ppj
+
 # Import each dataFrame of sub_regression_
 
 for indep in ["exret", "job_Retired"]:
@@ -10,22 +12,28 @@ for indep in ["exret", "job_Retired"]:
     labels = []
     for years in years_classes:
         sub_par = pd.read_pickle(
-            "sub_regression_"
-            + indep
-            + "_"
-            + str(years[0])
-            + "_"
-            + str(years[1])
-            + "_par.pkl"
+            ppj(
+                "OUT_DATA",
+                "sub_regression_"
+                + indep
+                + "_"
+                + str(years[0])
+                + "_"
+                + str(years[1])
+                + "_par.pkl",
+            )
         )
         sub_std = pd.read_pickle(
-            "sub_regression_"
-            + indep
-            + "_"
-            + str(years[0])
-            + "_"
-            + str(years[1])
-            + "_std.pkl"
+            ppj(
+                "OUT_DATA",
+                "sub_regression_"
+                + indep
+                + "_"
+                + str(years[0])
+                + "_"
+                + str(years[1])
+                + "_std.pkl",
+            )
         )
         coef = sub_par[1]
         dev = sub_std[1] * 1.96
@@ -47,4 +55,4 @@ for indep in ["exret", "job_Retired"]:
         weight="bold",
         wrap="True",
     )
-    plt.savefig(exp_name)
+    plt.savefig(ppj("OUT_FIGURES", exp_name))
