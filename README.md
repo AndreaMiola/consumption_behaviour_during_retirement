@@ -95,8 +95,6 @@ I highly recommend you to read the [documentation](add_link) for a better compre
 
 Literature have found a decrease in consumption at the retirement period. The idea of this project is to use an European panel data (SHARE) to replicate the results of the Haider And Stephen (2007) paper. 
 
-    target="_parent">
-</a>   
 
 
 ## [Main references](#table-of-contents)
