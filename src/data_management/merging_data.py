@@ -305,7 +305,7 @@ wave7_df = reduce(lambda left, right: pd.merge(left, right, on="mergeid"), wave7
 wave7_df.insert(0, "time", "2017")
 
 # Append every waves together
-share = wave1_df.append([wave2_df, wave4_df, wave5_df, wave6_df, wave7_df])
+share = wave1_df.append([wave2_df, wave4_df, wave5_df, wave6_df, wave7_df], sort=True)
 share = share.sort_values(["mergeid", "time"])
 
 # Merge the share dataframes with the key column of mergeid

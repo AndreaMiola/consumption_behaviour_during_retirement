@@ -35,6 +35,6 @@ def build(ctx):
         features="run_py_script",
         source="cleaning_data.py",
         deps=[ctx.path_to(ctx, "OUT_DATA", "share_merged.pkl")],
-        target=ctx.path_to(ctx, "OUT_DATA", "share_final.pkl"),
+        target=ctx.path_to(ctx, "OUT_DATA", "share_final.csv"),
         name="share_final",
     )

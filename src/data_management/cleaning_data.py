@@ -70,4 +70,4 @@ share_final.loc[:, "consumption_homefood"] = np.log(share_final["consumption_hom
 
 # Export cleaned data
 
-export_data = share_final.to_pickle(ppj("OUT_DATA", "share_final.pkl"))
+export_data = share_final.to_csv(ppj("OUT_DATA", "share_final.csv"))

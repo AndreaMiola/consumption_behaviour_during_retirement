@@ -1,14 +1,49 @@
 #! python
 # Generate output names list
+years_classes = [[1923, 1939], [1940, 1955], [1956, 1978]]
 
 out_names = []
 for format in [".tex", ".pkl"]:
-    for i in [1923, 1940, 1956]:
-        for y in [1939, 1955, 1978]:
+    for years in years_classes:
+        if format == ".pkl":
+            for var in ["_par", "_std"]:
+                names = ["", ""]
+                names[0] = (
+                    "sub_regression_"
+                    + "exret_"
+                    + str(years[0])
+                    + "_"
+                    + str(years[1])
+                    + var
+                    + format
+                )
+                names[1] = (
+                    "sub_regression_"
+                    + "job_Retired_"
+                    + str(years[0])
+                    + "_"
+                    + str(years[1])
+                    + var
+                    + format
+                )
+                out_names.append(names)
+        else:
             names = ["", ""]
-            names[0] = "sub_regression_" + "exret_" + str(i) + "_" + str(y) + format
+            names[0] = (
+                "sub_regression_"
+                + "exret_"
+                + str(years[0])
+                + "_"
+                + str(years[1])
+                + format
+            )
             names[1] = (
-                "sub_regression_" + "job_Retired_" + str(i) + "_" + str(y) + format
+                "sub_regression_"
+                + "job_Retired_"
+                + str(years[0])
+                + "_"
+                + str(years[1])
+                + format
             )
             out_names.append(names)
 
@@ -16,24 +51,24 @@ for format in [".tex", ".pkl"]:
 def build(ctx):
 
     # Illustrate simple use of run_py_script
-    for list in out_names[: int(len(out_names) / 2)]:
+    for list in out_names[:3]:
         for name in list:
             ctx(
                 features="run_py_script",
                 source="regression.py",
-                deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.pkl")],
+                deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.csv")],
                 target=ctx.path_to(ctx, "OUT_TABLES", name),
-                name="regression",
+                name="sub_regression",
             )
 
-    for list in out_names[int(len(out_names) / 2) :]:
+    for list in out_names[3:]:
         for name in list:
             ctx(
                 features="run_py_script",
                 source="regression.py",
-                deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.pkl")],
+                deps=[ctx.path_to(ctx, "OUT_DATA", "share_final.csv")],
                 target=ctx.path_to(ctx, "OUT_DATA", name),
-                name="regression",
+                name="sub_regression",
             )
 
     ctx(
@@ -44,18 +79,18 @@ def build(ctx):
             ctx.path_to(ctx, "OUT_TABLES", "main_regression_exret.tex"),
             ctx.path_to(ctx, "OUT_TABLES", "main_regression_job_Retired.tex"),
         ],
-        name="regression",
+        name="main_regression",
     )
 
-    for list in out_names[int(len(out_names) / 2) :]:
+    for list in out_names[3:]:
         for name in list:
             ctx(
                 features="run_py_script",
                 source="visualizing_data.py",
                 deps=[ctx.path_to(ctx, "OUT_DATA", name)],
                 target=[
-                    ctx.path_to(ctx, "OUT_FIGURES", "CI_exret.png"),
-                    ctx.path_to(ctx, "OUT_FIGURES", "CI_job_Retired.png"),
+                    ctx.path_to(ctx, "OUT_FIGURES", "CI_exret.pdf"),
+                    ctx.path_to(ctx, "OUT_FIGURES", "CI_job_Retired.pdf"),
                 ],
-                name="vasulization",
+                name="visualization",
             )

@@ -32,7 +32,7 @@ indeps = [indep_1, indep_2]
 
 # Importing input
 
-raw = pd.read_csv(ppj("OUT_DATA", "share_final.pkl"))
+raw = pd.read_csv(ppj("OUT_DATA", "share_final.csv"))
 
 # Define function generating categorical variable
 
@@ -44,7 +44,7 @@ def gen_categ(low=0, up=0):
     share_final = raw.copy()
     if low == 0:
         time = pd.Categorical(share_final.time)
-        share_final.set_index(["mergeid", "time"], inplace=True)
+        share_final = share_final.set_index(["mergeid", "time"])
         share_final["time"] = time
 
         country = pd.Categorical(share_final.country)
@@ -53,7 +53,7 @@ def gen_categ(low=0, up=0):
     else:
         a = raw.loc[(raw["yrbirth"] >= low) & (raw["yrbirth"] <= up)]
         time = pd.Categorical(a.time)
-        a.set_index(["mergeid", "time"], inplace=True)
+        a = a.set_index(["mergeid", "time"])
         a["time"] = time
 
         country = pd.Categorical(a.country)
@@ -81,7 +81,7 @@ def panel_reg(dataframe, indep, low=0, up=0):
         name = "main_regression_" + indep[0]
         # Exporting summary table in latex
         summary_table = fe_res.summary
-        f = open(("OUT_TABLES", name + ".tex"), "w")
+        f = open(ppj("OUT_TABLES", name + ".tex"), "w")
         f.write(summary_table.as_latex())
         f.close()
     else:

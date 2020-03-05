@@ -41,7 +41,7 @@ for indep in ["exret", "job_Retired"]:
         coefs.append(coef)
         deviations.append(dev)
     df_plot = pd.DataFrame([coefs, deviations, labels])
-    exp_name = "CI_" + indep
+    exp_name = "CI_" + indep + ".pdf"
     plt.figure()
     x = range(1, len(df_plot.index) + 1)
     y = df_plot.iloc[0]
