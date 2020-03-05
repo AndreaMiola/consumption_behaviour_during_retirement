@@ -100,7 +100,6 @@ Literature have found a decrease in consumption at the retirement period. The id
 ## [Main references](#table-of-contents)
 
 
-Haider, S. J., & Stephens Jr, M. (2007). Is there a retirement-consumption puzzle? Evidence using subjective retirement expectations. The review of economics and statistics, 89(2), 247-264. [*here*](https://www.mitpressjournals.org/doi/abs/10.1162/rest.89.2.247)
+Haider, S. J., & Stephens Jr, M. (2007). Is there a retirement-consumption puzzle? Evidence using subjective retirement expectations. The review of economics and statistics, 89(2), 247-264. [here](https://www.mitpressjournals.org/doi/abs/10.1162/rest.89.2.247)
 
-Von Gaudecker, H.M. (2019). Templates for reproducible research projects in economics. [*here*](https://zenodo.org/record/2533241#.XlXDdy2ZMnE).
-https://zenodo.org/record/2533241#.XlXDdy2ZMnE
+Von Gaudecker, H.M. (2019). Templates for reproducible research projects in economics. [here](https://zenodo.org/record/2533241#.XlXDdy2ZMnE).
