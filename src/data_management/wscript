@@ -19,7 +19,7 @@ def build(ctx):
                 features="run_py_script",
                 source="merging_data.py",
                 deps=[ctx.path_to(ctx, "IN_DATA", name)],
-                target=ctx.path_to(ctx, "OUT_DATA", "share_merged.csv"),
+                target=ctx.path_to(ctx, "OUT_DATA", "share_merged.pkl"),
                 name="merged_data",
             )
 
@@ -27,14 +27,14 @@ def build(ctx):
         features="run_py_script",
         source="merging_data.py",
         deps=[ctx.path_to(ctx, "IN_DATA", "sharew1_rel7-0-0_gv_isced.dta")],
-        target=ctx.path_to(ctx, "OUT_DATA", "share_merged.csv"),
+        target=ctx.path_to(ctx, "OUT_DATA", "share_merged.pkl"),
         name="merged_data",
     )
 
     ctx(
         features="run_py_script",
         source="cleaning_data.py",
-        deps=[ctx.path_to(ctx, "OUT_DATA", "share_merged.csv")],
-        target=ctx.path_to(ctx, "OUT_DATA", "share_final.csv"),
+        deps=[ctx.path_to(ctx, "OUT_DATA", "share_merged.pkl")],
+        target=ctx.path_to(ctx, "OUT_DATA", "share_final.pkl"),
         name="share_final",
     )

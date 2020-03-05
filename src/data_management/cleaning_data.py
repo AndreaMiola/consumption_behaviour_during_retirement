@@ -1,9 +1,10 @@
 import numpy as np
 import pandas as pd
 
-share_final = pd.read_csv("../original_data/share_merged.csv")
+from bld.project_paths import project_paths_join as ppj
 
-share_final.set_index(["mergeid", "time"], inplace=True)
+share_final = pd.read_pickle(ppj("OUT_DATA", "share_merged.pkl"))
+
 
 # Replace strings values with NaN
 strings = ["Don't know", "Refusal", "Other", "None"]
@@ -19,7 +20,6 @@ share_final = share_final.rename(
     }
 )
 
-# share_final = share_final[share_final.consumption_homefood.notnull()]
 
 # Get a dummy variable for the column gender
 
@@ -64,17 +64,10 @@ share_final["consumption_homefood"] = share_final["consumption_homefood"].replac
 
 share_final = share_final[share_final.consumption_homefood.notnull()]
 
-# share_final['educ_year'] = share_final['educ_year'].replace({np.nan:0})
-
-# logcolumns = ['consumption_homefood']
 
 share_final.loc[:, "consumption_homefood"] = np.log(share_final["consumption_homefood"])
-
-# share_final = share_final[share_final.consumption_homefood.notnull()]
-
-# share_final = share_final[share_final.job.notnull()]
 
 
 # Export cleaned data
 
-export_data = share_final.to_csv(r"../original_data/share_final.csv")
+export_data = share_final.to_pickle(ppj("OUT_DATA", "share_final.pkl"))
