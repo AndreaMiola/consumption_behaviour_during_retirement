@@ -86,7 +86,28 @@
 
 Setting the exact level of saving for retirment, knowing how much consuption we want to spend in the future is really difficult, especcially for the amount of factors that influence this choice: risk adversion coefficient, patience, how preferences could change. Under rational expectation assumptions, one of the pioneer of this topic, Modigliani (1954) developed the lyfe cicle model establishing that consumption should be smoothed across periods of predictably high and low income. However, emiprical studies found that consume decrease sharply during the first year of retirment (Banks et al., 1998; Bernheim et al., 2001; Schwerdt, 2005). This fall is know as "“retirement consumption puzzle”. In comparison, other studies as Aguiar and Hurst (2005, 2013) argue that there is a decline in actual consumption utility at retirement, so not related to consumption puzzeling. They argue that spending, rather than consumption, decreases on the basis that individuals reduce work-related expenditure and overall spending, through more efficient in purchasing and domestic production, as a result of changes in the opportunity cost of time after retirement.
 As in Haider and Stephen (2007), in this paper I do not modify the standard life cycle/permanent income hypothesis, but verify if there is a drop in consumption. If consumption smoothing exists there should not be significant changes at retirment period when it is expected. What I try to do in this project is to use the expeted retired as the indipendet variable of the analysis to account for change in consumption when no unexpeted events come through.
-This paper is structured as follows. Section 2 describe the dataset I used for the estimation, poiting out the assumption and how I worked with data. Section 3 reports the estimation strategy and the identification of the analysis. Section 4 reports the results and comments and some space is given to the heterogeneity analysis. Finally, section 5 concludes.
+\\\hspace*{4mm}  This paper is structured as follows. Section 2 describe the dataset I used for the estimation, poiting out the assumption and how I worked with data. Section 3 reports the estimation strategy and the identification of the analysis. Section 4 reports the results and comments and some space is given to the heterogeneity analysis. Finally, section 5 concludes.
+\\\hspace*{4mm}  For the realization of this project I used template by \citet{GaudeckerEconProjectTemplates}.
+
+\section{Data description}
+\label{sec:data-description}
+
+The analysis is based on The Survey of Health, Ageing and Retirement in Europe (SHARE) that is a multidisciplinary and cross-national panel database of micro data on health, socio-economic status and social and family networks of about 140,000 individuals aged 50 or older (around 380,000 interviews). The panel cover 7 waves from 2004 to 2017. I did not use data from wave 3, it is a retropective survey which I am not interest in for this project.
+\\\hspace*{4mm} The initial sample includes around 43.000 individuals, male and female, born between 1923 - 1978. The survey collected a wide range of information as income, consumptions, labor force activities, healt status and experience, education as well as demographic details. In particular, for the purpose of the analysis, I selected only data related to employment and pension status, consumption Behaviour and demographics characteristics. Only from the first wave first wave I extracted information regardi the education level standarize under the ISCED scorse and I assumed that it do not change over the following waves.
+\\\hspace*{4mm} The definition of retirement is based on the current labor force status question. It comes from a pool of aswers as employed od self-employed, homemaker, disable, unemployed. I define retirment as those individuals report being retired.
+\\\hspace*{4mm} For the analysis I impose some restrictions. First, each respondent had to be working at the initial wave, this permit to the indivuals to pontentially enter in retirement during the surveys. Secondly, all of the respondents had to indicate the expected retired age. This contidions restriced the sample around one thousand individuals from 11 countries (Austria, Belgium, Switzerland, Germany, Denmark, Spain, France, Greece, Italy, Netherlands and Sweden). Moreover, the sample is unbalanced since some individuals left the survey before the final wave.
+
+\section{Identification and estimation strategy}
+\label{sec:identification-and-estimation-strategy}
+
+By doing this work, we want to inference the effect of change in consumption behaviour at the retirment period. The most suitable method to verify this is through Least square dummy variable estimation (LSDV) for panel data. Therefore, we constructed a regression equation as:
+\setcounter{equation}{0}
+	\begin{equation}
+		\label{4thequation}
+		\Delta ln C_{t+1} = \alpha + \beta retire_{t+1} + \gamma X_{t+1} + \nu_{t+1}
+	\end{equation}
+
+where $X_{t+1}$ is a vector of time-varing demographic characteristics and retire$_{t+1}$ is an indicator of wheter or not the individuals retired between years $t$ and $t+1$. It takes the value of the dummy of actual retired or of the expexted retirment measure. Of course, $\Delta$ ln$C_{t+1}$ is the log change in consumption behaviour. For the analysis, also constrained by the type of data, I used only food consumption in home household.
 
 If you are using this template, please cite this item from the references: \citet{GaudeckerEconProjectTemplates}
 
