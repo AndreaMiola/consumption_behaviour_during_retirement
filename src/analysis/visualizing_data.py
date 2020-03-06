@@ -1,3 +1,7 @@
+"""Plotting graphs for sub_sample data pointing out the interval confidence
+of the different year classes for the expected retirment (exret) and for
+actual retirment event (dummy variable job_Retired) coefficients.
+"""
 import pandas as pd
 from matplotlib import pyplot as plt
 from regression import years_classes
