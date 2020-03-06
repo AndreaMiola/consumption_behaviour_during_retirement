@@ -16,7 +16,4 @@ Welcome to the Consumption behaviuor during retirment project's documentation!
     analysis
     final
     paper
-    model_code
-    model_specs
-    library
     references
