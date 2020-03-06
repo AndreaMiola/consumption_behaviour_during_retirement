@@ -1,3 +1,8 @@
+"""Prepare data for the analysis part. Upload the share_merge.pkl dataframe
+stored in "OUT_DATA" and clean it renaming the columns for a better comprehension,
+creating dummies, managing the missing values and transforming the values of
+consumption_homefood in log. Saved the cleaned file in "OUT_DATA" as share_final.csv.
+"""
 import numpy as np
 import pandas as pd
 
@@ -64,6 +69,8 @@ share_final["consumption_homefood"] = share_final["consumption_homefood"].replac
 
 share_final = share_final[share_final.consumption_homefood.notnull()]
 
+
+# Take the log og consumption_homefood
 
 share_final.loc[:, "consumption_homefood"] = np.log(share_final["consumption_homefood"])
 
