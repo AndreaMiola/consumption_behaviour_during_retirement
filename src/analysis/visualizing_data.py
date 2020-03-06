@@ -10,42 +10,24 @@ from bld.project_paths import project_paths_join as ppj
 
 # Import each dataFrame of sub_regression_
 
-for indep in ["exret", "job_Retired"]:
+for i in ["exret", "job_Retired"]:
     coefs = []
     deviations = []
     labels = []
-    for years in years_classes:
+    for y in years_classes:
         sub_par = pd.read_pickle(
-            ppj(
-                "OUT_DATA",
-                "sub_regression_"
-                + indep
-                + "_"
-                + str(years[0])
-                + "_"
-                + str(years[1])
-                + "_par.pkl",
-            )
+            ppj("OUT_DATA", "sub_" + i + "_" + str(y[0]) + "_" + str(y[1]) + "_par.pkl")
         )
         sub_std = pd.read_pickle(
-            ppj(
-                "OUT_DATA",
-                "sub_regression_"
-                + indep
-                + "_"
-                + str(years[0])
-                + "_"
-                + str(years[1])
-                + "_std.pkl",
-            )
+            ppj("OUT_DATA", "sub_" + i + "_" + str(y[0]) + "_" + str(y[1]) + "_std.pkl")
         )
         coef = sub_par[1]
         dev = sub_std[1] * 1.96
-        labels.append("From " + str(years[0]) + " to " + str(years[1]))
+        labels.append("From " + str(y[0]) + " to " + str(y[1]))
         coefs.append(coef)
         deviations.append(dev)
     df_plot = pd.DataFrame([coefs, deviations, labels])
-    exp_name = "CI_" + indep + ".pdf"
+    exp_name = "CI_" + i + ".pdf"
     plt.figure()
     x = range(1, len(df_plot.index) + 1)
     y = df_plot.iloc[0]
@@ -54,7 +36,7 @@ for indep in ["exret", "job_Retired"]:
     plt.errorbar(x, y, fmt="bo", yerr=yerr, uplims=True, lolims=True)
     plt.xticks(range(1, len(df_plot.index) + 1), df_plot.iloc[2], size="small")
     plt.title(
-        "Confidence intervals of " + indep + " per years classes",
+        "Confidence intervals of " + i + " per years classes",
         fontsize=10,
         weight="bold",
         wrap="True",
