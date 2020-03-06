@@ -1,3 +1,10 @@
+""" Pre-process the data, stored in the "IN_DATA" directory as a .dta file,
+extrated from the panel data SHARE.  They are divided in 7 waves and for each of them
+"employment and retirment status", "consumption information", "Coverscreen
+characteristics" and "education information" (the last only for the first wave)
+are selected to be initially cleaned and merged together to have a unique DataFrame
+called share_merged.pkl saved in "OUT_DATA".
+"""
 from functools import reduce
 
 import numpy as np
