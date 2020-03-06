@@ -1,15 +1,15 @@
 .. _final:
 
 ************************************
-Visualisation and results formatting
+Project dependency Graphs
 ************************************
 
 
 Documentation of the code in *src.final*.
 
 
-Schelling example
+Dependency graphs
 =================
 
-.. automodule:: src.final.plot_locations
+.. automodule:: src.final.project_dependency_graph
     :members:
