@@ -1,3 +1,9 @@
+"""Regression analysis for panel data with the option of fixed effects based on
+share_final.csv datafile stored in "OUT_DATA". Results of the regression are made
+for aggregate data (main_regression) and sub_sample data devided by years_classes.
+Tables are saved in "OUT_TABLES" and dataframes with coefficients and standard error
+for sub_sample are saved in "OUT_DATA".
+"""
 import pandas as pd
 import statsmodels.api as sm
 from linearmodels import PanelOLS
@@ -38,8 +44,17 @@ raw = pd.read_csv(ppj("OUT_DATA", "share_final.csv"))
 
 
 def gen_categ(low=0, up=0):
-    """
-    Docstring
+    """Function that generates categorical variable in the dataframe.
+
+    Args:
+        low (float): lower bound of years_classes
+        up (float): upper bound of years_classes
+
+    Returns:
+        main dataframes with categorical variables (time and country)
+        3 sub dataframes conditional on years years_classes with categorical
+        variables (time and country)
+
     """
     share_final = raw.copy()
     if low == 0:
@@ -69,7 +84,18 @@ def gen_categ(low=0, up=0):
 
 def panel_reg(dataframe, indep, low=0, up=0):
     """
-    Docstring
+    Panel data regression with fixed effects.
+
+    Args:
+        dataframe (dataframes): main dataframe and subsample divided in years_classes
+        inped (list): list of the indipendet variables (main "exret" and job_Retired)
+        low (float) : lower bound of years_classes
+        up (float): upper bound of years_classes
+
+    Returns:
+        regression tables (main and sub_sample)
+        regression parameters (dataframes): coefficient and std_errors of sub_sample
+
     """
     if low == 0:
         exog = sm.add_constant(dataframe[indep])
