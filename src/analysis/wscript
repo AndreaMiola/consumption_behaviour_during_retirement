@@ -4,47 +4,21 @@ years_classes = [[1923, 1939], [1940, 1955], [1956, 1978]]
 
 out_names = []
 for format in [".tex", ".pkl"]:
-    for years in years_classes:
+    for y in years_classes:
         if format == ".pkl":
             for var in ["_par", "_std"]:
                 names = ["", ""]
                 names[0] = (
-                    "sub_regression_"
-                    + "exret_"
-                    + str(years[0])
-                    + "_"
-                    + str(years[1])
-                    + var
-                    + format
+                    "sub_" + "exret_" + str(y[0]) + "_" + str(y[1]) + var + format
                 )
                 names[1] = (
-                    "sub_regression_"
-                    + "job_Retired_"
-                    + str(years[0])
-                    + "_"
-                    + str(years[1])
-                    + var
-                    + format
+                    "sub_" + "job_Retired_" + str(y[0]) + "_" + str(y[1]) + var + format
                 )
                 out_names.append(names)
         else:
             names = ["", ""]
-            names[0] = (
-                "sub_regression_"
-                + "exret_"
-                + str(years[0])
-                + "_"
-                + str(years[1])
-                + format
-            )
-            names[1] = (
-                "sub_regression_"
-                + "job_Retired_"
-                + str(years[0])
-                + "_"
-                + str(years[1])
-                + format
-            )
+            names[0] = "sub_" + "exret_" + str(y[0]) + "_" + str(y[1]) + format
+            names[1] = "sub_" + "job_Retired_" + str(y[0]) + "_" + str(y[1]) + format
             out_names.append(names)
 
 

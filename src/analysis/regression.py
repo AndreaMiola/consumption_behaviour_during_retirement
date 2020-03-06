@@ -117,7 +117,7 @@ def panel_reg(dataframe, indep, low=0, up=0):
             use_lsdv=True, cov_type="clustered", cluster_entity=True, cluster_time=True
         )
         # Setting output name
-        name = "sub_regression_" + indep[0] + "_" + str(low) + "_" + str(up)
+        name = "sub_" + indep[0] + "_" + str(low) + "_" + str(up)
         # Exporting summary table in latex
         summary_table = fe_res.summary
         f = open(ppj("OUT_TABLES", name + ".tex"), "w")
