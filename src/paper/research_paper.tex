@@ -16,6 +16,7 @@
 \usepackage{xcolor}
 \usepackage{subcaption}
 \usepackage{minibox}
+
 % \usepackage{pdf14} % Enable for Manuscriptcentral -- can't handle pdf 1.5
 % \usepackage{endfloat} % Enable to move tables / figures to the end. Useful for some submissions.
 
@@ -63,7 +64,7 @@
 
 \begin{document}
 
-\title{Consumption Behaviour during Retirement\thanks{Andrea Miola, University of Bonn. Email: \href{mailto:andreamiola95@gmail.com}{\nolinkurl{andreamiola95@gmail.com}}.}}
+\title{Consumption Behaviuor during Retirement \thanks{Andrea Miola, University of Bonn. Email: \href{mailto:andreamiola95@gmail.com}{\nolinkurl{andreamiola95 [at] gmail [dot] com}}.}}
 
 \author{Andrea Miola}
 
@@ -77,17 +78,18 @@
 
 
 \begin{abstract}
-	The aim of this paper is to analyse the effect of consumption behaviour after retirement. Literature found a systematic decrease in consumption in contradition of what consumption theory smoothing affirms. Therefore, I decided to replicate the paper of Haider and Stephen (2007) using SHARE data focusing the analysis on a European level. Implementing a fixed effect estimation on panel data I measured the effect on actual year of retirment and on the expected one. The results of this analysis, even though they are not significant, predict a decline in consumption both on the actual and on the expected period.
+The aim of this paper is to analyse the effect of consumption behaviour after retirement. Literature found a systematic decrease in consumption in contradition of what consumption theory smoothing affirms. Therefore, I decided to replicate the paper of Haider and Stephen (2007) using SHARE data focusing the analysis on a European level. Implementing a fixed effect estimation on panel data I measured the effect on actual year of retirment and on the expected one. The results of this analysis, even though they are not significant, predict a decline in consumption both on the actual and on the expected period.
+
 \end{abstract}
 \clearpage
 
 \section{Introduction} % (fold)
 \label{sec:introduction}
 
-Setting the exact level of saving for retirment, knowing how much consuption we want to spend in the future is really difficult, especcially for the amount of factors that influence this choice: risk adversion coefficient, patience, how preferences could change. Under rational expectation assumptions, one of the pioneer of this topic, Modigliani (1954) developed the lyfe cicle model establishing that consumption should be smoothed across periods of predictably high and low income. However, emiprical studies found that consume decrease sharply during the first year of retirment (Banks et al., 1998; Bernheim et al., 2001; Schwerdt, 2005). This fall is know as "“retirement consumption puzzle”. In comparison, other studies as Aguiar and Hurst (2005, 2013) argue that there is a decline in actual consumption utility at retirement, so not related to consumption puzzeling. They argue that spending, rather than consumption, decreases on the basis that individuals reduce work-related expenditure and overall spending, through more efficient in purchasing and domestic production, as a result of changes in the opportunity cost of time after retirement.
+Setting the exact level of saving for retirment, knowing how much consuption we want to spend in the future is really difficult, especcially for the amount of factors that influence this choice: risk adversion coefficient, patience, how preferences could change. Under rational expectation assumptions, one of the pioneer of this topic, Modigliani (1954) developed the lyfe cicle model establishing that consumption should be smoothed across periods of predictably high and low income. However, emiprical studies found that consume decrease sharply during the first year of retirment (Banks et al., 1998; Bernheim et al., 2001; Schwerdt, 2005). This fall is know as “retirement consumption puzzle”. In comparison, other studies as Aguiar and Hurst (2005, 2013) argue that there is a decline in actual consumption utility at retirement, so not related to consumption puzzeling. They argue that spending, rather than consumption, decreases on the basis that individuals reduce work-related expenditure and overall spending, through more efficient in purchasing and domestic production, as a result of changes in the opportunity cost of time after retirement.
 As in Haider and Stephen (2007), in this paper I do not modify the standard life cycle/permanent income hypothesis, but verify if there is a drop in consumption. If consumption smoothing exists there should not be significant changes at retirment period when it is expected. What I try to do in this project is to use the expeted retired as the indipendet variable of the analysis to account for change in consumption when no unexpeted events come through.
-\\\hspace*{4mm}  This paper is structured as follows. Section 2 describe the dataset I used for the estimation, poiting out the assumption and how I worked with data. Section 3 reports the estimation strategy and the identification of the analysis. Section 4 reports the results and comments and some space is given to the heterogeneity analysis. Finally, section 5 concludes.
-\\\hspace*{4mm}  For the realization of this project I used template by \citet{GaudeckerEconProjectTemplates}.
+\\\hspace*{4mm} This paper is structured as follows. Section 2 describe the dataset I used for the estimation, poiting out the assumption and how I worked with data. Section 3 reports the estimation strategy and the identification of the analysis. Section 4 reports the results and the conclusion.
+\\\hspace*{4mm}   For the realization of this project I used template by \citet{GaudeckerEconProjectTemplates}.
 
 \section{Data description}
 \label{sec:data-description}
@@ -103,18 +105,35 @@ The analysis is based on The Survey of Health, Ageing and Retirement in Europe (
 By doing this work, we want to inference the effect of change in consumption behaviour at the retirment period. The most suitable method to verify this is through Least square dummy variable estimation (LSDV) for panel data. Therefore, we constructed a regression equation as:
 \setcounter{equation}{0}
 	\begin{equation}
-		\label{4thequation}
+		\label{1stequation}
 		\Delta ln C_{t+1} = \alpha + \beta retire_{t+1} + \gamma X_{t+1} + \nu_{t+1}
 	\end{equation}
 
-where $X_{t+1}$ is a vector of time-varing demographic characteristics and retire$_{t+1}$ is an indicator of wheter or not the individuals retired between years $t$ and $t+1$. It takes the value of the dummy of actual retired or of the expexted retirment measure. Of course, $\Delta$ ln$C_{t+1}$ is the log change in consumption behaviour. For the analysis, also constrained by the type of data, I used only food consumption in home household.
+where $X_{t+1}$ is a vector of time-varing demographic characteristics, such as years of education, household size, age, gender, country of living. The variable retire$_{t+1}$ is an indicator of wheter or not the individuals retired between years $t$ and $t+1$. It takes the value of the dummy of actual retired or of the expexted retirment measure. Of course, $\Delta$ ln$C_{t+1}$ is the log change in consumption behaviour. For the analysis, also constrained by the type of data, I used only food consumption in home household. In our estimation, $\beta$ is the causal effect of main indipendent variable on the log of consumption. We sensibly assumed that the conditional independence assumption holds conditionally on the controls we have taken in consideration in the construction of our regression.
 
-If you are using this template, please cite this item from the references: \citet{GaudeckerEconProjectTemplates}
+\section{Results}
+\label{sec:results}
 
-\citet{Schelling69} example in the code is taken from \citet{StachurskiSargent13}
+As can be notice from the first table (in appendix) the result for the observe retirement is negative but non significant. I can not confirm the results butit is interesting to note how the results show a drop in consumption at the retirement period. It is exactly the same when I regret exepected retirement on the dependent variable. The coefficient negative, but non significant, highlighting a fall in consumption. However, the covariates are consistent with the controls used in different studies, as I expected.
+\\\hspace*{4mm} I decided to divided the sample in 3 years classes: for people born from 1923 to 19939, from 1940 to 1955, from 1956 to 1978. In this way I could measure the paramenter foran  heterogeneous group of the same sample. The figure 1  below shows how the parameter of interest varis across the group for the observed retired variable.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\textwidth]{CI_job_Retired.pdf}
+\caption{Confidence Interval of Exepected Ret. per years classes.}
+\end{figure}
 
-The decision rule of an agent is the following:
-\input{formulas/decision_rule}
+Additionally, fugure 2 shows the variation of the parameter of interest for the expected retirement year. The two figures reveal that the drop in consumption for the oldest individuals is more drastic than the youngest ones. The middle group display a similar pattern to the youngest group.
+
+\begin{figure} [h]
+\centering
+\includegraphics[width=0.55\textwidth]{CI_exret.pdf}
+\caption{Confidence Interval of Exepected Ret. per years classes.}
+\end{figure}
+
+%\citet{Schelling69} example in the code is taken from \citet{StachurskiSargent13}
+
+%The decision rule of an agent is the following:
+%\input{formulas/decision_rule}
 
 %\begin{figure}
     %\caption{Segregation by cycle in the baseline \citet{Schelling69} model as in the \citet{StachurskiSargent13} example}
@@ -125,7 +144,7 @@ The decision rule of an agent is the following:
 
 
 %\begin{figure}
-    %\caption{Segregation by cycle in the baseline \citet{Schelling69} model, limiting the number of potential moves per period to two}
+   % \caption{Segregation by cycle in the baseline \citet{Schelling69} model, limiting the number of potential moves per period to two}
 
     %\includegraphics[width=\textwidth]{../../out/figures/schelling_max_moves_2}
 
@@ -142,11 +161,15 @@ The decision rule of an agent is the following:
 
 
 
-
-% \appendix
-
+\clearpage
+\section{Appendix}
+\label{sec:appendix}
+ \input{main_regression_exret.tex}
+\input{main_regression_job_Retired.tex}
+\clearpage
 % The chngctr package is needed for the following lines.
 % \counterwithin{table}{section}
 % \counterwithin{figure}{section}
 
 \end{document}
+
