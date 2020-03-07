@@ -1,5 +1,3 @@
-\documentclass[11pt, a4paper, leqno]{article}
-\usepackage{a4wide}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{float, afterpage, rotating, graphicx}
@@ -88,7 +86,7 @@ The aim of this paper is to analyse the effect of consumption behaviour after re
 
 Setting the exact level of saving for retirment, knowing how much consuption we want to spend in the future is really difficult, especcially for the amount of factors that influence this choice: risk adversion coefficient, patience, how preferences could change. Under rational expectation assumptions, one of the pioneer of this topic, Modigliani (1954) developed the lyfe cicle model establishing that consumption should be smoothed across periods of predictably high and low income. However, emiprical studies found that consume decrease sharply during the first year of retirment (Banks et al., 1998; Bernheim et al., 2001; Schwerdt, 2005). This fall is know as “retirement consumption puzzle”. In comparison, other studies as Aguiar and Hurst (2005, 2013) argue that there is a decline in actual consumption utility at retirement, so not related to consumption puzzeling. They argue that spending, rather than consumption, decreases on the basis that individuals reduce work-related expenditure and overall spending, through more efficient in purchasing and domestic production, as a result of changes in the opportunity cost of time after retirement.
 As in Haider and Stephen (2007), in this paper I do not modify the standard life cycle/permanent income hypothesis, but verify if there is a drop in consumption. If consumption smoothing exists there should not be significant changes at retirment period when it is expected. What I try to do in this project is to use the expeted retired as the indipendet variable of the analysis to account for change in consumption when no unexpeted events come through.
-\\\hspace*{4mm} This paper is structured as follows. Section 2 describe the dataset I used for the estimation, poiting out the assumption and how I worked with data. Section 3 reports the estimation strategy and the identification of the analysis. Section 4 reports the results and the conclusion.
+\\\hspace*{4mm} This paper is structured as follows. Section 2 describe the dataset I used for the estimation, poiting out the assumption and how I worked with data. Section 3 reports the estimation strategy and the identification of the analysis. Section 4 reports the results and section 5 the conclusions.
 \\\hspace*{4mm}   For the realization of this project I used template by \citet{GaudeckerEconProjectTemplates}.
 
 \section{Data description}
@@ -118,39 +116,22 @@ As can be notice from the first table (in appendix) the result for the observe r
 \\\hspace*{4mm} I decided to divided the sample in 3 years classes: for people born from 1923 to 19939, from 1940 to 1955, from 1956 to 1978. In this way I could measure the paramenter foran  heterogeneous group of the same sample. The figure 1  below shows how the parameter of interest varis across the group for the observed retired variable.
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.55\textwidth]{CI_job_Retired.pdf}
-\caption{Confidence Interval of Exepected Ret. per years classes.}
+\includegraphics[width=0.55\textwidth]{../../out/figures/CI_job_Retired.pdf}
+\caption{Confidence Interval of Observed Ret. per years classes.}
 \end{figure}
 
 Additionally, fugure 2 shows the variation of the parameter of interest for the expected retirement year. The two figures reveal that the drop in consumption for the oldest individuals is more drastic than the youngest ones. The middle group display a similar pattern to the youngest group.
 
 \begin{figure} [h]
 \centering
-\includegraphics[width=0.55\textwidth]{CI_exret.pdf}
+\includegraphics[width=0.55\textwidth]{../../out/figures/CI_exret.pdf}
 \caption{Confidence Interval of Exepected Ret. per years classes.}
 \end{figure}
 
-%\citet{Schelling69} example in the code is taken from \citet{StachurskiSargent13}
+\section{Conclusions}
+\label{sec:conclusions}
 
-%The decision rule of an agent is the following:
-%\input{formulas/decision_rule}
-
-%\begin{figure}
-    %\caption{Segregation by cycle in the baseline \citet{Schelling69} model as in the \citet{StachurskiSargent13} example}
-
-    %\includegraphics[width=\textwidth]{../../out/figures/schelling_baseline}
-
-%\end{figure}
-
-
-%\begin{figure}
-   % \caption{Segregation by cycle in the baseline \citet{Schelling69} model, limiting the number of potential moves per period to two}
-
-    %\includegraphics[width=\textwidth]{../../out/figures/schelling_max_moves_2}
-
-%\end{figure}
-
-% section introduction (end)
+The literature has reported a significant drop in consumption at retirement. Assuming that individuals are acting under rational expectations, and under the life cycle/permanent income hypothesis, therefore this consumption decline is a puzzle if it is observed for workers who retire when expected. In this paper I used expected individuals retirement as the main indipendent variable to try to demostrate that there exist a consumption fall to prove the consumption puzzle. Unfortunately, my results are not significant, but the other purpose of this project was to create a reproducible work with the aim of reproducing and improving the analysis with all the tools I used, trying to understand in depth how I treated the data and how I set the analysis; future improvements would be absolutely necessary.
 
 
 
@@ -164,8 +145,8 @@ Additionally, fugure 2 shows the variation of the parameter of interest for the 
 \clearpage
 \section{Appendix}
 \label{sec:appendix}
- \input{main_regression_exret.tex}
-\input{main_regression_job_Retired.tex}
+ \input{../../out/tables/main_regression_exret.tex}
+\input{../../out/tables/main_regression_job_Retired.tex}
 \clearpage
 % The chngctr package is needed for the following lines.
 % \counterwithin{table}{section}
