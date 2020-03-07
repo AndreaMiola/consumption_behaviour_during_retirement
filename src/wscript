@@ -8,6 +8,6 @@ def build(ctx):
     ctx.recurse("final")
     # Safety measure -- else the LaTeX scanner might fail because some
     # '.tex'-source file has not been generated.
-    # ctx.add_group()
-    # ctx.recurse("paper")
-    # ctx.recurse("documentation")
+    ctx.add_group()
+    ctx.recurse("paper")
+    ctx.recurse("documentation")
