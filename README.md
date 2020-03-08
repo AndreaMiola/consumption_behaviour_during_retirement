@@ -19,6 +19,7 @@ Getting started
 	- [Run the project with waf](#run-the-project-with-waf)
 - [Documentation](#documentation)
 - [Project idea](#project-idea)
+- [Notes](#notes)
 - [Main references](#main-references)
 
 
@@ -93,8 +94,12 @@ If you need it, the command named distclean is provided to remove the build dire
 
 ## [Documentation](#table-of-contents)
 
-I highly recommend you to read the [documentation](add_link) for a better comprehension of the project.
+For a better comprehension of the project and for its structure please read the documentation.
 
+## [Notes](#notes)
+
+I had some problems to import module 'visualizing_data'. The description of this file is unfortunately not in the documentation.
+Waf highlights some Warning that I was not able to solve, but the build finishes successfully. 
 
 ## [Project idea](#table-of-contents)
 
