@@ -52,6 +52,11 @@ On your terminal (of course in the path of the project) type:
 
 	$ conda env create -f environment.yml.
 
+If you need to update the environment, type: 
+	
+	
+	$ conda env update consumption_behaviuor_during_retirment
+
 To activate it, type:
 
 	$ conda activate consumption_behaviuor_during_retirment
@@ -93,7 +98,7 @@ I highly recommend you to read the [documentation](add_link) for a better compre
 
 ## [Project idea](#table-of-contents)
 
-Literature have found a decrease in consumption at the retirement period. The idea of this project is to use an European panel data (SHARE) to replicate the results of the Haider And Stephen (2007) paper. 
+Literature have found a decrease in consumption at the retirement period. The idea of this project is to use an European panel data (SHARE) to replicate the results of the Haider And Stephen (2007) paper. Implementing a fixed effect estimation on panel data I measured the effect on actual year of retirment and on the expected one. The results of this analysis, even though they are not significant, predict a decline in consumption both on the actual and on the expected period.
 
 
 
