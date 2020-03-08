@@ -1,4 +1,4 @@
-Consumption Behaviour During Retirment
+Consumption Behaviour During Retirement
 ===========================================================
 
 This is a tentative work to reproduce a paper of Haider And Stephen (2007) made by Andrea Miola.
