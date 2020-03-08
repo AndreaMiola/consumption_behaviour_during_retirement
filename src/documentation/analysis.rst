@@ -13,7 +13,7 @@ Regression
 .. automodule:: src.analysis.regression
     :members:
 
-Visualizing Data
+Data visualization
 ==================
 
 .. automodule:: src.analysis.visualizing_data

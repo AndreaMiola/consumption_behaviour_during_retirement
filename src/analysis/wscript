@@ -66,5 +66,5 @@ def build(ctx):
                     ctx.path_to(ctx, "OUT_FIGURES", "CI_exret.pdf"),
                     ctx.path_to(ctx, "OUT_FIGURES", "CI_job_Retired.pdf"),
                 ],
-                name="visualization",
+                name="visualizing_data",
             )
