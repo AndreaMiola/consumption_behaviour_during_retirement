@@ -35,10 +35,5 @@ for i in ["exret", "job_Retired"]:
 
     plt.errorbar(x, y, fmt="bo", yerr=yerr, uplims=True, lolims=True)
     plt.xticks(range(1, len(df_plot.index) + 1), df_plot.iloc[2], size="small")
-    plt.title(
-        "Confidence intervals of " + i + " per years classes",
-        fontsize=10,
-        weight="bold",
-        wrap="True",
-    )
+    plt.title("CI of " + i + " per years", fontsize=10, weight="bold", wrap="True")
     plt.savefig(ppj("OUT_FIGURES", exp_name))
