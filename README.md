@@ -19,6 +19,7 @@ Getting started
 	- [Run the project with waf](#run-the-project-with-waf)
 - [Documentation](#documentation)
 - [Project idea](#project-idea)
+- [Notes](#notes)
 - [Main references](#main-references)
 
 
@@ -52,6 +53,11 @@ On your terminal (of course in the path of the project) type:
 
 	$ conda env create -f environment.yml.
 
+If you need to update the environment, type: 
+	
+	
+	$ conda env update consumption_behaviuor_during_retirment
+
 To activate it, type:
 
 	$ conda activate consumption_behaviuor_during_retirment
@@ -59,7 +65,7 @@ To activate it, type:
 
 ### [Pre-commit hooks](#table-of-contents)
 
-Pre-commit have to be installed in order for them to have an effect.
+Pre-commit have to be installed in order for them to have an effect if you want to implement any changes. 
 
 	$ pre-commit install
 
@@ -88,12 +94,16 @@ If you need it, the command named distclean is provided to remove the build dire
 
 ## [Documentation](#table-of-contents)
 
-I highly recommend you to read the [documentation](add_link) for a better comprehension of the project.
+For a better comprehension of the project and for its structure please read the documentation.
 
+## [Notes](#notes)
+
+- I had some problems to import module 'visualizing_data'. The description of this file is unfortunately not in the documentation.
+- Waf highlights some warnings that I was not able to solve, but the build finishes successfully. 
 
 ## [Project idea](#table-of-contents)
 
-Literature have found a decrease in consumption at the retirement period. The idea of this project is to use an European panel data (SHARE) to replicate the results of the Haider And Stephen (2007) paper. 
+Literature have found a decrease in consumption at the retirement period. The idea of this project is to use an European panel data (SHARE) to replicate the results of the Haider And Stephen (2007) paper. Implementing a fixed effect estimation on panel data I measured the effect on actual year of retirment and on the expected one. The results of this analysis, even though they are not significant, predict a decline in consumption both on the actual and on the expected period.
 
 
 
