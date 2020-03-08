@@ -98,8 +98,8 @@ For a better comprehension of the project and for its structure please read the 
 
 ## [Notes](#notes)
 
-I had some problems to import module 'visualizing_data'. The description of this file is unfortunately not in the documentation.
-Waf highlights some Warning that I was not able to solve, but the build finishes successfully. 
+- I had some problems to import module 'visualizing_data'. The description of this file is unfortunately not in the documentation.
+- Waf highlights some warnings that I was not able to solve, but the build finishes successfully. 
 
 ## [Project idea](#table-of-contents)
 
