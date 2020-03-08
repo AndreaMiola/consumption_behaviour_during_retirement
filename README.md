@@ -64,7 +64,7 @@ To activate it, type:
 
 ### [Pre-commit hooks](#table-of-contents)
 
-Pre-commit have to be installed in order for them to have an effect.
+Pre-commit have to be installed in order for them to have an effect if you want to implement any changes. 
 
 	$ pre-commit install
 
