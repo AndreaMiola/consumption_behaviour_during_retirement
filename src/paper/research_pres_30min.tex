@@ -38,9 +38,13 @@
 
 
 \begin{frame}[t]
-    \frametitle{Presentation}
+    \frametitle{Introduction}
     \begin{itemize}
-        \item<+-> Please cite this template as: \citet{GaudeckerEconProjectTemplates}
+        \item Setting the saving and knowing the consuption amount for the retirement is really difficult
+        \item Neoclassical theory: consumption should be smoothed across periods (Modigliani, 1954).
+        \item Falling in consumption as "consumption puzzle" (Banks et al., 1998; Bernheim et al., 2001; Schwerdt, 2005).
+        \item Falling as a result of changes in the opportunity cost of time after retirement (Aguiar and Hurst 2005, 2013).
+        \item The aim of this work is to replicate the results of Haider and Stephen (2007) using SHARE data.
    \end{itemize}
     \note{~}
 \end{frame}
@@ -48,9 +52,76 @@
 
 % Print black screen only in presentation mode for finishing up.
 \begin{frame}[t]
-    \frametitle{Presentation}
+    \frametitle{Data description}
     \begin{itemize}
-        \item<+-> Presentation to be added
+        \item The Survey of Health, Ageing and Retirement in Europe (SHARE)
+        \item The panel cover 7 waves from 2004 to 2017.
+        \item The initial sample includes around 43.000 individuals, male and female, born between 1923 - 1978.
+        \item I selected only data related to employment and pension status, consumption behaviour and demographics characteristics.
+        \item Retirement is based on the current labor force status. Dummy: 1 if retired 0 otherwise.
+        \item Restritions: on working on the initial wave, expected retired indicate.
+   \end{itemize}
+    \note{~}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Estimation strategy}
+    \begin{itemize}
+        \item I used Least square dummy variable estimation (LSDV) for panel data
+        \item Regression equation as:
+            \begin{equation}
+                \label{1stequation}
+                \Delta ln C_{t+1} = \alpha + \beta retire_{t+1} + \gamma X_{t+1} + \nu_{t+1}
+            \end{equation}
+        \item I used only food consumption in home household.
+        \item Conditional independence assumption holds conditionally on the controls.
+   \end{itemize}
+    \note{~}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Regression results}
+    \begin{itemize}
+        \item The results are negative but non significant
+        \item However, the coefficients show a drop in consumption at the retirement period
+        \item Covariates are consistent with the controls used in different studies, as I expected.
+   \end{itemize}
+    \note{~}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Heterogeneity analysis}
+    \begin{itemize}
+        \item The figure 1  below shows how the parameter of interest varis across the group for the observed retired variable.
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.70\textwidth]{../../out/figures/CI_job_Retired.pdf}
+                \caption{Confidence Interval of Observed Ret. per years classes.}
+            \end{figure}
+   \end{itemize}
+    \note{~}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Heterogeneity analysis}
+    \begin{itemize}
+        \item fugure 2 shows the variation of the parameter of interest for the expected retirement year.
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.70\textwidth]{../../out/figures/CI_exret.pdf}
+                \caption{Confidence Interval of Observed Ret. per years classes.}
+            \end{figure}
+   \end{itemize}
+    \note{~}
+\end{frame}
+
+\begin{frame}[t]
+    \frametitle{Conclusions}
+    \begin{itemize}
+        \item This consumption decline is a puzzle if it is observed for workers who retire when expected.
+        \item The results are not significant.
+        \item However, main aim of this project was to create a reproducible work.
+        \item Future improvements would be absolutely necessary.
    \end{itemize}
     \note{~}
 \end{frame}
