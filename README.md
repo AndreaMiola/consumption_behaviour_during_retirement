@@ -42,7 +42,7 @@ A series of programs are required for the project and they must be setup in your
 Clone the repository into a folder on your machine:
 
 
-	$ cd /dest/dir && git clone https://github.com/AndreaMiola/consumption_behaviuor_during_retirment.git
+	$ cd /dest/dir && git clone https://github.com/AndreaMiola/consumption_behaviour_during_retirement.git
 
 
 ### [Create and activate conda environment](#table-of-contents)
